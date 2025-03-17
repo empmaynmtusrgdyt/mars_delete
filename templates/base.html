@@ -2,10 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-        <title>{{ title }}</title>
-    </head>
-    <body>
-        <h1>Миссия Колонизация Марса</h1>
-        <h4>И на Марсе будут яблони цвести!</h4>
-    </body>
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>Миссия Колонизация Марса</h1>
+    <h4>И на Марсе будут яблони цвести!</h4>
+    <h2>Список профессий, необходимых для успешной работы миссии:</h2>
+
+    {% if list_type == 'ol' %}
+        <ol>
+        {% for profession in professions %}
+            <li>{{ profession }}</li>
+        {% endfor %}
+        </ol>
+    {% elif list_type == 'ul' %}
+        <ul>
+        {% for profession in professions %}
+            <li>{{ profession }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Неверный параметр: допустимы 'ol' или 'ul'.</p>
+    {% endif %}
+
+</body>
 </html>
